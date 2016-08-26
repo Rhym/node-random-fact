@@ -1,10 +1,10 @@
 {
   "name": "random-fact",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Output a random fact to your console",
   "main": "index.js",
   "scripts": {},
-  "url": "https://github.com/Rhym/node-random-fact",
+  "repository": "Rhym/node-random-fact",
   "author": "Ryan Potter <contact@ryanpotter.co.nz> (http://ryanpotter.co.nz/)",
   "license": "MIT",
   "dependencies": {
