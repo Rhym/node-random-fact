@@ -1,0 +1,14 @@
+{
+  "name": "random-fact",
+  "version": "1.0.0",
+  "description": "Output a random fact to your console",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ryan Potter <contact@ryanpotter.co.nz> (http://ryanpoter.co.nz/)",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.15.0",
+    "time-stamp": "^1.0.1"
+  }
+}
