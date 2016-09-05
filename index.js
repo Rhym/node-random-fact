@@ -11,7 +11,7 @@ const _         = require('lodash'),
  * @returns {string}
  */
 let getTimestamp = () => {
-  return '[' + chalk.grey(timestamp('HH:mm:ss')) + ']';
+  return `[${chalk.grey(timestamp('HH:mm:ss'))}]`;
 };
 
 let facts = () => {
@@ -35,7 +35,7 @@ let facts = () => {
    */
   _.forEach(sentences, sentence => {
     time = getTimestamp();
-    process.stdout.write(time + ' ');
+    process.stdout.write(`${time} `);
     console.log.apply(console, [chalk.blue(_.join(sentence, ' '))]);
   });
 
