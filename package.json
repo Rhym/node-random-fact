@@ -1,6 +1,6 @@
 {
   "name": "random-fact",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Output a random fact to your console",
   "main": "index.js",
   "scripts": {},
