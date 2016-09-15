@@ -20,14 +20,14 @@ let facts = () => {
    * Check that the data exists.
    */
   if (!_.isObject(data) && !_.isNil(data)) {
-    console.log(chalk.bgRed('Couldn\'t load data.'));
+    console.log(chalk.bgRed(`Couldn't load data.`));
     return;
   }
 
   let uniqueArray = _.uniq(data.facts),
       randomItem  = _.sample(uniqueArray),
       wordLimit   = 10,
-      sentences   = _.chunk(_.words(randomItem), wordLimit),
+      sentences   = _.chunk(_.words(randomItem, /[^, ]+/g), wordLimit),
       time;
 
   /**
