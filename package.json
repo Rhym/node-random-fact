@@ -8,8 +8,9 @@
   "author": "Ryan Potter <contact@ryanpotter.co.nz> (http://ryanpotter.co.nz/)",
   "license": "MIT",
   "dependencies": {
+    "boxen": "^0.8.1",
     "chalk": "^1.1.3",
-    "lodash": "^4.15.0",
-    "time-stamp": "^1.0.1"
-  }
+    "lodash": "^4.15.0"
+  },
+  "devDependencies": {}
 }

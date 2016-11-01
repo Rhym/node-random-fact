@@ -3,16 +3,7 @@
 const _         = require('lodash'),
       data      = require('./static/data.json'),
       chalk     = require('chalk'),
-      timestamp = require('time-stamp');
-
-/**
- * Output a styled timestamp to match the gulp console.
- *
- * @returns {string}
- */
-let getTimestamp = () => {
-  return `[${chalk.grey(timestamp('HH:mm:ss'))}]`;
-};
+      boxen     = require('boxen');
 
 let facts = () => {
 
@@ -26,18 +17,28 @@ let facts = () => {
 
   let uniqueArray = _.uniq(data.facts),
       randomItem  = _.sample(uniqueArray),
-      wordLimit   = 10,
+      wordLimit   = 7,
       sentences   = _.chunk(_.words(randomItem, /[^, ]+/g), wordLimit),
-      time;
+      text        = '';
 
   /**
    * Break up the string into sentences.
    */
-  _.forEach(sentences, sentence => {
-    time = getTimestamp();
-    process.stdout.write(`${time} `);
-    console.log.apply(console, [chalk.blue(_.join(sentence, ' '))]);
+  _.forEach(sentences, (sentence, index) => {
+    text += `${_.join(sentence, ' ')}${sentences.length - 1 == index ? '' : '\n'}`;
   });
+
+  console.log(boxen(text, {
+    padding: 1,
+    margin: {
+      top: 1,
+      right: 0,
+      bottom: 1,
+      left: 1,
+    },
+    borderColor: 'blue',
+    borderStyle: 'round',
+  }));
 
 };
 
