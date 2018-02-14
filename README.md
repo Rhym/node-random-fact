@@ -28,3 +28,7 @@ gulp.task('random-fact', cb => {
   cb();
 });
 ```
+
+#### Webpack
+
+Use the webpack plugin wrapper: https://github.com/Rhym/webpack-random-fact
