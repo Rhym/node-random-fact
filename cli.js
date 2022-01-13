@@ -1,5 +1,12 @@
-{
-  "facts": [
+#!/usr/bin/env node
+"use strict";
+
+import _ from "lodash";
+import chalk from "chalk";
+import boxen from "boxen";
+
+const data = {
+  facts: [
     "Approximately 40 percent of the U.S. paper currency in circulation was counterfeit by the end of the Civil War.",
     "Every three days a human stomach gets a new lining.",
     "In 1873, Colgate made a toothpaste that was available in a jar.",
@@ -2856,7 +2863,7 @@
     "In Haiti, only 1 out of every 200 people own a car. This is ironic considering approximately 33 percent of the country's budget on import is spent on equipment for fuel and transportation.",
     "Every U.S. bill regardless of denomination costs just 4 cents to make.",
     "About 30 percent of American admit to talking to their dogs or leaving messages on their answering machines for their dogs while they are away.",
-    "A duck’s quack doesn’t echo, and no one knows why.",
+    "A duck's quack doesn't echo, and no one knows why.",
     "Caterpillar means \"hairy cat\" in Old French.",
     "The ostrich has two toes on each feet which gives it greater speed.",
     "On September 3, 1970, a hailstone was found in Coffeyville, Kansas that was eight inches in diameter and weighed 1.67 pounds.",
@@ -3057,6 +3064,39 @@
     "Honeybees use the sun as a compass which helps them navigate.",
     "An average driver spends approximately 2 hours and 14 minutes kissing in their car in a lifetime.",
     "In gangster slang, a boxing match that is fixed is called a \"barney.\""
-  ],
-  "success": "true"
+  ]
 }
+
+let init = () => {
+  if (!_.isObject(data) && !_.isNil(data)) {
+    console.log(chalk.bgRed(`Couldn't load data.`));
+    return;
+  }
+
+  let uniqueArray = _.uniq(data.facts),
+    randomItem = _.sample(uniqueArray),
+    wordLimit = 7,
+    sentences = _.chunk(_.words(randomItem, /[^, ]+/g), wordLimit),
+    text = "";
+
+  _.forEach(sentences, (sentence, index) => {
+    text += `${_.join(sentence, " ")}${sentences.length - 1 == index ? "" : "\n"
+      }`;
+  });
+
+  console.log(
+    boxen(text, {
+      padding: 1,
+      margin: {
+        top: 1,
+        right: 0,
+        bottom: 1,
+        left: 1,
+      },
+      borderColor: "blue",
+      borderStyle: "round",
+    })
+  );
+};
+
+init();
