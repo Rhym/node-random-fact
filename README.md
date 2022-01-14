@@ -12,6 +12,8 @@ yarn add -D random-fact
 
 ## Usage
 
+In your CLI run:
+
 ```bash
-random-fact get-fact
+random-fact
 ```
