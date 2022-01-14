@@ -2,17 +2,15 @@
   "name": "random-fact",
   "version": "2.0.0",
   "description": "Output a random fact to your console",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "scripts": {
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "build": "rollup -c ./rollup.config.js"
   },
   "repository": "Rhym/node-random-fact",
   "author": "Ryan Potter <contact@ryanpotter.co.nz> (http://ryanpotter.co.nz/)",
   "license": "MIT",
-  "bin": {
-    "get-fact": "./cli.js"
-  },
   "dependencies": {
     "boxen": "^6.2.1",
     "chalk": "^5.0.0",
@@ -20,5 +18,7 @@
   },
   "devDependencies": {
     "prettier": "2.5.1"
-  }
+  },
+  "bin": "./index.js",
+  "type": "module"
 }

@@ -3069,7 +3069,7 @@ const data = {
 
 let init = () => {
   if (!_.isObject(data) && !_.isNil(data)) {
-    console.log(chalk.bgRed(`Couldn't load data.`));
+    console.log(chalk.bgRed("Couldn't load data."));
     return;
   }
 
